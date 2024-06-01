@@ -13,3 +13,6 @@
 Proteus下载地址：https://pan.baidu.com/s/1P9mq1JYGC4zitK4ef0wcVg?pwd=vfcb 提取码: vfcb  
 里面有很多版本，别装那个汉化版的。  
 不会就跟着网上的视频安装
+
+---
+最后的的最后，如果程序还是有问题，没辙了，下载final，然后感谢我吧，花的是我的钱 :sob::sob::sob:
