@@ -1,61 +1,36 @@
-/**
-  *************************** ×Ö½ÚÖÇ¿Ø *************************************
-  * @author  LWen   
-  * @version V1.0
-  * @date    2020-08-01
-  * @brief   Firmware Library V3.5.0¡£
-  * @copyright  °æÈ¨ËùÓĞ ,µÁ°æ±Ø¾¿
-  * @attention  ±¾³ÌĞòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßĞí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-  *             Copyright(C) LWen 2023-2033   All rights reserved
-  *
-  ************************** STµ¥Æ¬»úÏµÁĞ ************************************
-  * @ÌÔ±¦µêÆÌ: ×Ö½ÚÖÇ¿Ø
-  * @ÌÔ±¦ÍøÖ·: https://zijiezhikong.taobao.com/
-  * @ÓÊÏäµØÖ·: zijiezhikong@foxmail.com
-  ******************************************************************************
-**/ 
 
-/*-----------------------------------------------------------------------------------------------------------------------*/	
 #ifndef __BIT_BAND_H
 #define __BIT_BAND_H	
 #include "stm32f10x.h"
 	 
-//bit_bandÊµÏÖÀàËÆ51µ¥Æ¬»úIO²Ù×÷·½Ê½
+//bit_bandå®ç°ç±»ä¼¼51å•ç‰‡æœºIOæ“ä½œæ–¹å¼
 
-//¹«Ê½¸ù¾İ<Cortex-M3È¨ÍşÖ¸ÄÏ>µÄµÚ87-92Ò³
+//å…¬å¼æ ¹æ®<Cortex-M3æƒå¨æŒ‡å—>çš„ç¬¬87-92é¡µ
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
 #define REGx_Bit_Band(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
+#define OUTPUTA(Pin) REGx_Bit_Band((uint32_t)(&(GPIOA->ODR)), Pin)//GPIOAçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTA(Pin) REGx_Bit_Band((uint32_t)(&(GPIOA->IDR)), Pin)//GPIOAçš„å¼•è„šPin(0..15)è¾“å…¥
 
-/**
- * @brief  ÊµÏÖÖ¸Õë²Ù×÷ÏàÓ¦GPIOx(A..G)µÄODRºÍIDR¼Ä´æÆ÷
- * @param  Pin:where Pin can be (0..15).
-**/
-#define OUTPUTA(Pin) REGx_Bit_Band((uint32_t)(&(GPIOA->ODR)), Pin)//GPIOAµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTA(Pin) REGx_Bit_Band((uint32_t)(&(GPIOA->IDR)), Pin)//GPIOAµÄÒı½ÅPin(0..15)ÊäÈë
+#define OUTPUTB(Pin) REGx_Bit_Band((uint32_t)(&(GPIOB->ODR)), Pin)//GPIOBçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTB(Pin) REGx_Bit_Band((uint32_t)(&(GPIOB->IDR)), Pin)//GPIOBçš„å¼•è„šPin(0..15)è¾“å…¥
 
-#define OUTPUTB(Pin) REGx_Bit_Band((uint32_t)(&(GPIOB->ODR)), Pin)//GPIOBµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTB(Pin) REGx_Bit_Band((uint32_t)(&(GPIOB->IDR)), Pin)//GPIOBµÄÒı½ÅPin(0..15)ÊäÈë
+#define OUTPUTC(Pin) REGx_Bit_Band((uint32_t)(&(GPIOC->ODR)), Pin)//GPIOCçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTC(Pin) REGx_Bit_Band((uint32_t)(&(GPIOC->IDR)), Pin)//GPIOCçš„å¼•è„šPin(0..15)è¾“å…¥
 
-#define OUTPUTC(Pin) REGx_Bit_Band((uint32_t)(&(GPIOC->ODR)), Pin)//GPIOCµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTC(Pin) REGx_Bit_Band((uint32_t)(&(GPIOC->IDR)), Pin)//GPIOCµÄÒı½ÅPin(0..15)ÊäÈë
+#define OUTPUTD(Pin) REGx_Bit_Band((uint32_t)(&(GPIOD->ODR)), Pin)//GPIODçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTD(Pin) REGx_Bit_Band((uint32_t)(&(GPIOD->IDR)), Pin)//GPIODçš„å¼•è„šPin(0..15)è¾“å…¥
 
-#define OUTPUTD(Pin) REGx_Bit_Band((uint32_t)(&(GPIOD->ODR)), Pin)//GPIODµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTD(Pin) REGx_Bit_Band((uint32_t)(&(GPIOD->IDR)), Pin)//GPIODµÄÒı½ÅPin(0..15)ÊäÈë
+#define OUTPUTE(Pin) REGx_Bit_Band((uint32_t)(&(GPIOE->ODR)), Pin)//GPIOEçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTE(Pin) REGx_Bit_Band((uint32_t)(&(GPIOE->IDR)), Pin)//GPIOEçš„å¼•è„šPin(0..15)è¾“å…¥
 
-#define OUTPUTE(Pin) REGx_Bit_Band((uint32_t)(&(GPIOE->ODR)), Pin)//GPIOEµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTE(Pin) REGx_Bit_Band((uint32_t)(&(GPIOE->IDR)), Pin)//GPIOEµÄÒı½ÅPin(0..15)ÊäÈë
+#define OUTPUTF(Pin) REGx_Bit_Band((uint32_t)(&(GPIOF->ODR)), Pin)//GPIOFçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTF(Pin) REGx_Bit_Band((uint32_t)(&(GPIOF->IDR)), Pin)//GPIOFçš„å¼•è„šPin(0..15)è¾“å…¥
 
-#define OUTPUTF(Pin) REGx_Bit_Band((uint32_t)(&(GPIOF->ODR)), Pin)//GPIOFµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTF(Pin) REGx_Bit_Band((uint32_t)(&(GPIOF->IDR)), Pin)//GPIOFµÄÒı½ÅPin(0..15)ÊäÈë
-
-#define OUTPUTG(Pin) REGx_Bit_Band((uint32_t)(&(GPIOG->ODR)), Pin)//GPIOGµÄÒı½ÅPin(0..15)Êä³ö
-#define  INPUTG(Pin) REGx_Bit_Band((uint32_t)(&(GPIOG->IDR)), Pin)//GPIOGµÄÒı½ÅPin(0..15)ÊäÈë
+#define OUTPUTG(Pin) REGx_Bit_Band((uint32_t)(&(GPIOG->ODR)), Pin)//GPIOGçš„å¼•è„šPin(0..15)è¾“å‡º
+#define  INPUTG(Pin) REGx_Bit_Band((uint32_t)(&(GPIOG->IDR)), Pin)//GPIOGçš„å¼•è„šPin(0..15)è¾“å…¥
 
 #endif
-
-/*------------------------------------------*** ÌÔ±¦µêÆÌ: ×Ö½ÚÖÇ¿Ø ***--------------------------------------------------*/	
-/*---------------End Of File---------Copyright(C) LWen 2023-2033   All rights reserved---------End Of File---------------*/	
 
 
