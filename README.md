@@ -18,7 +18,7 @@ Proteus下载地址：https://pan.baidu.com/s/1P9mq1JYGC4zitK4ef0wcVg?pwd=vfcb �
 <details>
   <summary>最后的的最后</summary>
   
-  如果程序还是有问题，没辙了，下载final，然后点个 start 感谢我吧，花的是我的钱 :sob::sob::sob:
+  如果程序还是有问题，没辙了，下载final，然后点个 :star: 吧求求了，花的是我的钱 :sob::sob::sob:
 </details>
 
 
